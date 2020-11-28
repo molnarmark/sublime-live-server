@@ -3,5 +3,5 @@
   "port": "8080",
   "address": "localhost",
   "cors": true,
-  "ignore": [],
+  "ignore": "",
 }

@@ -17,8 +17,16 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
     global SERVER_PROCESS
     settings = sublime.load_settings(SETTINGS_FILE)
     project_path = self.view.window().project_data()['folders'][0]['path']
+
+    args = [
+      '--port={}'.format(settings.get('port')),
+      '--address={}'.format(settings.get('address')),
+      '--cors={}'.format(settings.get('cors')),
+      '--ignore={}'.format(settings.get('ignore'))
+    ]
+
     SERVER_PROCESS = subprocess.Popen(
-      ["/usr/bin/node", PLUGIN_NODE_PATH, project_path],
+      ["/usr/bin/node", PLUGIN_NODE_PATH, project_path] + args,
       stdout=subprocess.PIPE,
       stdin=subprocess.PIPE,
       stderr=subprocess.PIPE,
