@@ -1,0 +1,18 @@
+[
+  {
+    "caption": "Live Server: Start",
+    "command": "live_server_start"
+  },
+  {
+    "caption": "Live Server: Stop",
+    "command": "live_server_stop"
+  },
+  {
+    "caption": "Preferences: Live Server Settings",
+    "command": "edit_settings",
+    "args": {
+        "base_file": "${packages}/LiveServer/LiveServer.sublime-settings",
+        "default": "// Live Server Settings\n{\n\t$0\n}\n"
+    }
+  }
+]

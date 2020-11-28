@@ -1,0 +1,7 @@
+// Note: These are just mappings to https://github.com/tapio/live-server#usage-from-command-line
+{
+  "port": "8080",
+  "address": "localhost",
+  "cors": true,
+  "ignore": [],
+}
