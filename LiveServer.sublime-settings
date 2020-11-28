@@ -1,5 +1,7 @@
 // Note: These are just mappings to https://github.com/tapio/live-server#usage-from-command-line
 {
+  "node_executable_path": "/usr/bin/node",
+  "global_node_modules_path": "/usr/local/lib/node_modules",
   "port": "8080",
   "address": "localhost",
   "cors": true,
