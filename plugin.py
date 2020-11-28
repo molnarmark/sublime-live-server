@@ -1,7 +1,7 @@
 import sublime
 import sublime_plugin
 import subprocess
-import os, time
+import os, webbrowser
 
 SETTINGS_FILE = 'LiveServer.sublime-settings'
 SERVER_BINARY_PATH = '/live-server/live-server.js'
@@ -11,10 +11,21 @@ PLUGIN_NODE_PATH = os.path.join(
 )
 
 SERVER_PROCESS = None
+RUNNING_ON_PORT = None
+
+RUNNING_STATUS_MESSAGE = 'Live Server ✔️'
+STATUS_KEY = 'live_server_status'
+
+class LiveServerEventListener(sublime_plugin.ViewEventListener):
+  def on_activated(self):
+    if SERVER_PROCESS:
+      self.view.set_status(STATUS_KEY, RUNNING_STATUS_MESSAGE)
+    else:
+      self.view.erase_status(STATUS_KEY)
 
 class LiveServerStartCommand(sublime_plugin.TextCommand):
   def run(self, edit):
-    global SERVER_PROCESS
+    global SERVER_PROCESS, RUNNING_ON_PORT
     if SERVER_PROCESS:
       SERVER_PROCESS.terminate()
 
@@ -38,5 +49,23 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
       startupinfo=None,
     )
 
+    RUNNING_ON_PORT = settings.get('port')
+
     self.view.window().status_message('🎉 Live Server running on {}.'.format(settings.get('port')))
-    self.view.set_status('live_server_status', 'Live Server ✔️')
+    self.view.set_status(STATUS_KEY, RUNNING_STATUS_MESSAGE)
+
+class LiveServerStopCommand(sublime_plugin.TextCommand):
+  def run(self, edit):
+    global SERVER_PROCESS
+    SERVER_PROCESS.terminate()
+    SERVER_PROCESS = None
+    self.view.window().status_message('❌ Live Server stopped.')
+    self.view.erase_status(STATUS_KEY)
+
+class LiveServerOpenInBrowserCommand(sublime_plugin.TextCommand):
+  def run(self, edit):
+    if SERVER_PROCESS:
+      self.view.window().status_message('📖 Opening Live Server..')
+      webbrowser.open('http://localhost:{}'.format(RUNNING_ON_PORT))
+    else:
+      self.view.window().status_message('❌ Live Server isn\'t running. Nothing to open.')

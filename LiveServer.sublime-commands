@@ -8,6 +8,10 @@
     "command": "live_server_stop"
   },
   {
+    "caption": "Live Server: Open In Browser",
+    "command": "live_server_open_in_browser"
+  },
+  {
     "caption": "Preferences: Live Server Settings",
     "command": "edit_settings",
     "args": {
