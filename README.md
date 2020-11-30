@@ -11,7 +11,7 @@ This package integrates the **[Live Server](https://www.npmjs.com/package/live-s
   <b>For this package to work, you need to have a folder opened inside your editor. That will be the root path the server starts serving on.</b>
 </p>
 
-##### 💡 About Live Server:
+#### 💡 About Live Server:
 
 **[Live Server](https://www.npmjs.com/package/live-server)** is Node.js tool that spins up a local development server in the given directory.
 
