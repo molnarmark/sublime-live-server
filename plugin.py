@@ -1,7 +1,7 @@
 import sublime
 import sublime_plugin
 import subprocess
-import os, webbrowser, time
+import os, webbrowser
 
 SETTINGS_FILE = 'LiveServer.sublime-settings'
 SERVER_BINARY_PATH = '/live-server/live-server.js'
