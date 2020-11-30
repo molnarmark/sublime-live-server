@@ -1,5 +1,6 @@
 <p align="center">
   <img src="images/logo.png">
+  <h4 align="center">Launch a Development Server directly from Sublime Text!</h4>
 </p>
 
 ## 📋 Introduction
