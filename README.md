@@ -4,7 +4,27 @@
 
 ## 📋 Introduction
 
-This package integrates the **[Live Server](http://google.com)** package, giving the ability to launch a local development server to serve content directly from Sublime Text.
+This package integrates the **[Live Server](http://google.com)** Node package, giving the ability to launch a local development server to serve content directly from Sublime Text.
+
+## ❗Prerequisites
+
+You need the following software installed to use **Live Server**.
+
+- [**`Node.js`**](https://nodejs.org/)
+- [**`npm`**](https://npmjs.com) or [**`Yarn`**](https://yarnpkg.com)
+- [**`Live Server`**](https://www.npmjs.com/package/live-server) installed globally
+
+To install Live Server globally using **`npm`**, run:
+
+```sh
+npm install -g live-server
+```
+
+To install Live Server globally using **`Yarn`**, run:
+
+```sh
+yarn global add live-server
+```
 
 ## 🌀 Installation
 
@@ -46,7 +66,7 @@ The default settings are the following:
 
 ### **`global_node_modules_path`**
 
-- Path to the default **node_modules** directory. You can run **`npm root -g`** in your terminal to find this.
+- Path to the default **node_modules** directory. You can run **`npm root -g`** or **`yarn global bin`** in your terminal to find this.
 - ##### **`default: /usr/local/lib/node_modules`**
 
 ### **`port`**
@@ -71,4 +91,4 @@ The default settings are the following:
 
 ## 🔖 Credits
 
-- This package wouldn't exist without the amazing Node package also called **[Live Server](http://google.com)** by **[Tapio Vierros](https://github.com/tapio)**.
+- This package wouldn't exist without the amazing [**`Node`**](https://nodejs.org/) package also called **[Live Server](http://google.com)** by **[Tapio Vierros](https://github.com/tapio)**.
