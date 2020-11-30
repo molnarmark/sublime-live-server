@@ -92,32 +92,32 @@ The default settings are the following:
 }
 ```
 
-### **`node_executable_path`**
+#### **`node_executable_path`**
 
 - Path to the Node runtime executable. You can run **`whereis node`** in your terminal to find this.
 - ##### **`default: /usr/bin/node`**
 
-### **`global_node_modules_path`**
+#### **`global_node_modules_path`**
 
 - Path to the default **node_modules** directory. You can run **`npm root -g`** or **`yarn global bin`** in your terminal to find this.
 - ##### **`default: /usr/local/lib/node_modules`**
 
-### **`port`**
+#### **`port`**
 
 - The default port for the server.
 - ##### **`default: 8080`**
 
-### **`address`**
+#### **`address`**
 
 - Host address. This should always be either localhost or 127.0.0.1.
 - ##### **`default: localhost`**
 
-### **`cors`**
+#### **`cors`**
 
 - Enables CORS for any origin.
 - ##### **`default: true`**
 
-### **`browser`**
+#### **`browser`**
 
 - Specifies which browser to use.
 - Valid values are:
@@ -128,12 +128,12 @@ The default settings are the following:
 
 - ##### **`default: default`**
 
-### **`nobrowser`**
+#### **`nobrowser`**
 
 - By setting this to true, the browser will not open the server by default
 - ##### **`default: false`**
 
-### **`wait`**
+#### **`wait`**
 
 - Wait this amount of milliseconds before reloading the page after a change
 - ##### **`default: 100`**
