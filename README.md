@@ -27,7 +27,7 @@ If this package isn't on Package Control at the time you are trying to install i
 
 The default settings are the following:
 
-```json
+```js
 // Note: These are just mappings to https://github.com/tapio/live-server#usage-from-command-line
 {
   "node_executable_path": "/usr/bin/node",
@@ -72,7 +72,3 @@ The default settings are the following:
 ## 🔖 Credits
 
 - This package wouldn't exist without the amazing Node package also called **[Live Server](http://google.com)** by **[Tapio Vierros](https://github.com/tapio)**.
-
-```
-
-```
