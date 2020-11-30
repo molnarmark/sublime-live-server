@@ -2,8 +2,10 @@
 {
   "node_executable_path": "/usr/bin/node",
   "global_node_modules_path": "/usr/local/lib/node_modules",
-  "port": "8080",
+  "port": 8080,
   "address": "localhost",
   "cors": true,
-  "ignore": "",
+  "browser": "default",
+  "nobrowser": false,
+  "wait": 100
 }

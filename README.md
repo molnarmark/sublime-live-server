@@ -4,7 +4,7 @@
 
 ## 📋 Introduction
 
-This package integrates the **[Live Server](http://google.com)** Node package, giving the ability to launch a local development server to serve content directly from Sublime Text.
+This package integrates the **[Live Server](https://www.npmjs.com/package/live-server)** Node package, giving the ability to launch a local development server to serve content directly from Sublime Text.
 
 ## ❗Prerequisites
 
@@ -52,10 +52,12 @@ The default settings are the following:
 {
   "node_executable_path": "/usr/bin/node",
   "global_node_modules_path": "/usr/local/lib/node_modules",
-  "port": "8080",
+  "port": 8080,
   "address": "localhost",
   "cors": true,
-  "ignore": ""
+  "browser": "default",
+  "nobrowser": false,
+  "wait": 100
 }
 ```
 
@@ -84,11 +86,27 @@ The default settings are the following:
 - Enables CORS for any origin.
 - ##### **`default: true`**
 
-### **`ignore`**
+### **`browser`**
 
-- Regular Expression to ignore specific files & folders.
-- ##### **`default: ""`**
+- Specifies which browser to use.
+- Valid values are:
+
+  - **`default`**
+  - **`google-chrome`**
+  - **`firefox`**
+
+- ##### **`default: default`**
+
+### **`nobrowser`**
+
+- By setting this to true, the browser will not open the server by default
+- ##### **`default: false`**
+
+### **`wait`**
+
+- Wait this amount of milliseconds before reloading the page after a change
+- ##### **`default: 100`**
 
 ## 🔖 Credits
 
-- This package wouldn't exist without the amazing [**`Node`**](https://nodejs.org/) package also called **[Live Server](http://google.com)** by **[Tapio Vierros](https://github.com/tapio)**.
+- This package wouldn't exist without the amazing [**`Node`**](https://nodejs.org/) package also called **[Live Server](https://www.npmjs.com/package/live-server)** by **[Tapio Vierros](https://github.com/tapio)**.

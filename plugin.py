@@ -1,7 +1,7 @@
 import sublime
 import sublime_plugin
 import subprocess
-import os, webbrowser
+import os, webbrowser, time
 
 SETTINGS_FILE = 'LiveServer.sublime-settings'
 SERVER_BINARY_PATH = '/live-server/live-server.js'
@@ -16,7 +16,11 @@ RUNNING_ON_PORT = None
 RUNNING_STATUS_MESSAGE = 'Live Server ✔️'
 STATUS_KEY = 'live_server_status'
 
-class LiveServerEventListener(sublime_plugin.ViewEventListener):
+def plugin_unloaded():
+  if SERVER_PROCESS:
+    SERVER_PROCESS.terminate()
+
+class LiveServerViewEventListener(sublime_plugin.ViewEventListener):
   def on_activated(self):
     if SERVER_PROCESS:
       self.view.set_status(STATUS_KEY, RUNNING_STATUS_MESSAGE)
@@ -36,8 +40,14 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
       '--port={}'.format(settings.get('port')),
       '--address={}'.format(settings.get('address')),
       '--cors={}'.format(settings.get('cors')),
-      '--ignore={}'.format(settings.get('ignore'))
+      '--wait={}'.format(settings.get('wait')),
     ]
+
+    if (settings.get("browser") != "default"):
+      args.append('--browser={}'.format(settings.get('browser')))
+
+    if (settings.get("nobrowser") == True):
+      args.append('--no-browser')
 
     live_server_path = settings.get('global_node_modules_path') + PLUGIN_NODE_PATH
     SERVER_PROCESS = subprocess.Popen(
