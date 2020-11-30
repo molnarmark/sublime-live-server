@@ -1,0 +1,4 @@
+Thank you for installing Live Server! 👋
+
+For usage instructions, head over to the GitHub repository of this project:
+https://github.com/molnarmark/sublime-live-server
