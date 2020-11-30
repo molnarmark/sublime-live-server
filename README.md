@@ -43,7 +43,38 @@ If this package isn't on Package Control at the time you are trying to install i
 - Paste https://github.com/molnarmark/sublime-live-server
 - Press Enter
 
+## ❓ Usage
+
+This package exposes 3 commands that can be used directly via the Command Palette, or bound to keys. These are:
+
+**`Live Server: Start`**
+
+- Maps to `live_server_start`
+
+**`Live Server: Stop`**
+
+- Maps to `live_server_stop`
+
+**`Live Server: Open In Browser`**
+
+- Maps to `live_server_open_in_browser`
+
+Status bar messages with indicator emojis are implemented into the package, displaying information in cases such as:
+
+- 🎉 Live Server running
+- ❌ Live Server stopped
+- ✔️ Live Server status
+
+When the development server is running, a status message will be shown in the status bar indicating that the server is running.
+This is shared across all views in the opened instance.
+
+<p align="center">
+  <img src="images/statusbar.png">
+</p>
+
 ## 🔨 Settings
+
+To change your settings, bring up the Command Palette and select: **`Preferences: Live Server Settings`**
 
 The default settings are the following:
 
