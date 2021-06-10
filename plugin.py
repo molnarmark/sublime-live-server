@@ -47,10 +47,10 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
       '--wait={}'.format(settings.get('wait')),
     ]
 
-    if (settings.get("browser") != "default"):
+    if (settings.get('browser') != 'default'):
       args.append('--browser={}'.format(settings.get('browser')))
 
-    if (settings.get("nobrowser") == True):
+    if (settings.get('nobrowser') == True):
       args.append('--no-browser')
 
     live_server_path = os.path.normpath(settings.get('global_node_modules_path') + PLUGIN_NODE_PATH)
