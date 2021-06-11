@@ -1,0 +1,8 @@
+🌍 Live Server 1.0.1
+====================
+
+- Various fixes for Windows users
+
+** For Windows users, its enough to set the 'node_executable_path' to 'node.exe'
+
+Thank you for using Live Server.
