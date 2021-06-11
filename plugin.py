@@ -10,6 +10,10 @@ PLUGIN_NODE_PATH = os.path.join(
   SERVER_BINARY_PATH
 )
 
+# handling windows
+if os.name == "nt":
+  PLUGIN_NODE_PATH = SERVER_BINARY_PATH
+
 SERVER_PROCESS = None
 RUNNING_ON_PORT = None
 
@@ -43,21 +47,32 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
       '--wait={}'.format(settings.get('wait')),
     ]
 
-    if (settings.get("browser") != "default"):
+    if (settings.get('browser') != 'default'):
       args.append('--browser={}'.format(settings.get('browser')))
 
-    if (settings.get("nobrowser") == True):
+    if settings.get('nobrowser'):
       args.append('--no-browser')
 
-    live_server_path = settings.get('global_node_modules_path') + PLUGIN_NODE_PATH
-    SERVER_PROCESS = subprocess.Popen(
-      [settings.get('node_executable_path'), live_server_path, project_path] + args,
-      stdout=subprocess.PIPE,
-      stdin=subprocess.PIPE,
-      stderr=subprocess.PIPE,
-      env=os.environ.copy(),
-      startupinfo=None,
-    )
+    live_server_path = os.path.normpath(settings.get('global_node_modules_path') + PLUGIN_NODE_PATH)
+    if os.name == 'nt':
+      SERVER_PROCESS = subprocess.Popen(
+        [settings.get('node_executable_path'), live_server_path, project_path] + args,
+        stdout=subprocess.PIPE,
+        stdin=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        env=os.environ.copy(),
+        creationflags=0x08000000,
+        startupinfo=None,
+      )
+    else:
+      SERVER_PROCESS = subprocess.Popen(
+        [settings.get('node_executable_path'), live_server_path, project_path] + args,
+        stdout=subprocess.PIPE,
+        stdin=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        env=os.environ.copy(),
+        startupinfo=None,
+      )
 
     RUNNING_ON_PORT = settings.get('port')
 
