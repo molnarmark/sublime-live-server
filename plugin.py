@@ -38,7 +38,7 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
       SERVER_PROCESS.terminate()
 
     settings = sublime.load_settings(SETTINGS_FILE)
-    project_path = self.view.window().project_data()['folders'][0]['path']
+    server_path = self.view.window().extract_variables()['file_path']
 
     args = [
       '--port={}'.format(settings.get('port')),
@@ -56,7 +56,7 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
     live_server_path = os.path.normpath(settings.get('global_node_modules_path') + PLUGIN_NODE_PATH)
     if os.name == 'nt':
       SERVER_PROCESS = subprocess.Popen(
-        [settings.get('node_executable_path'), live_server_path, project_path] + args,
+        [settings.get('node_executable_path'), live_server_path, server_path] + args,
         stdout=subprocess.PIPE,
         stdin=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -66,7 +66,7 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
       )
     else:
       SERVER_PROCESS = subprocess.Popen(
-        [settings.get('node_executable_path'), live_server_path, project_path] + args,
+        [settings.get('node_executable_path'), live_server_path, server_path] + args,
         stdout=subprocess.PIPE,
         stdin=subprocess.PIPE,
         stderr=subprocess.PIPE,
