@@ -7,10 +7,6 @@
 
 This package integrates the **[Live Server](https://www.npmjs.com/package/live-server)** Node package, giving the ability to launch a local development server to serve content directly from Sublime Text.
 
-<p align="center">
-  <b>For this package to work, you need to have a folder opened inside your editor. That will be the root path the server starts serving on.</b>
-</p>
-
 #### 💡 About Live Server:
 
 **[Live Server](https://www.npmjs.com/package/live-server)** is Node.js tool that spins up a local development server in the given directory.
