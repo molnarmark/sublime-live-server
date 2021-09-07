@@ -1,0 +1,6 @@
+🌍 Live Server 1.0.2
+====================
+
+- Having a Sublime Text project open is not a requirement anymore for the server to work.
+
+Thank you for using Live Server.
