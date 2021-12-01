@@ -39,13 +39,9 @@ yarn global add live-server
 
 #### Package Control
 
-Live Server is currently awaiting to be added to **Package Control**.
-
-[comment]: <> (This package is available in Package Control under the name **Live Server**.)
+This package is available in Package Control under the name **LiveServer**.
 
 #### As a Repository
-
-If this package isn't on Package Control at the time you are trying to install it,
 
 - Bring up the Command Palette
 - Select **`Package Control: Add Repository`**
