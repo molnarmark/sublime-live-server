@@ -43,10 +43,11 @@ This package is available in Package Control under the name **LiveServer**.
 
 #### As a Repository
 
-- Bring up the Command Palette
+- Bring up the Command Palette (**Ctrl** + **Shift** + **p**)
 - Select **`Package Control: Add Repository`**
 - Paste https://github.com/molnarmark/sublime-live-server
 - Press Enter
+- For Windows machine, you need to change the package's config settings, check below [🔨 Settings](#-settings)
 
 ## ❓ Usage
 
@@ -81,7 +82,7 @@ This is shared across all views in the opened instance.
 
 To change your settings, bring up the Command Palette and select: **`Preferences: Live Server Settings`**
 
-The default settings are the following:
+The default settings for linux are the following:
 
 ```js
 // Note: These are just mappings to https://github.com/tapio/live-server#usage-from-command-line
@@ -100,12 +101,13 @@ The default settings are the following:
 #### **`node_executable_path`**
 
 - Path to the Node runtime executable. You can run **`whereis node`** in your terminal to find this.
-- ##### **`default: /usr/bin/node`**
+  - In _Windows Command Prompt_, run **`where node`**
+- ##### **`default value: /usr/bin/node`**
 
 #### **`global_node_modules_path`**
 
 - Path to the default **node_modules** directory. You can run **`npm root -g`** or **`yarn global bin`** in your terminal to find this.
-- ##### **`default: /usr/local/lib/node_modules`**
+- ##### **`default value: /usr/local/lib/node_modules`**
 
 #### **`port`**
 
