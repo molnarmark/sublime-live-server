@@ -82,6 +82,9 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
 class LiveServerStopCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     global SERVER_PROCESS
+    if not SERVER_PROCESS:
+      sublime.status_message('Live Server is not running.')
+      return
     SERVER_PROCESS.terminate()
     SERVER_PROCESS = None
     self.view.window().status_message('❌ Live Server stopped.')
