@@ -38,7 +38,11 @@ class LiveServerStartCommand(sublime_plugin.TextCommand):
       SERVER_PROCESS.terminate()
 
     settings = sublime.load_settings(SETTINGS_FILE)
-    server_path = self.view.window().extract_variables()['file_path']
+    variables = self.view.window().extract_variables()
+    if 'file_path' not in variables:
+        sublime.error_message('Live Server: Please save the file before starting the server.')
+        return
+    server_path = variables['file_path']
 
     args = [
       '--port={}'.format(settings.get('port')),
